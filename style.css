@@ -83,8 +83,16 @@ body {
   color: #fff;
   font-size: 20px;
   line-height: 27px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
+.second-Half button img {
+  height: 24px;
+  width: 24px;
+  margin-left: 12px;
+}
 
 .knight-cup-logo {
   position: absolute;
