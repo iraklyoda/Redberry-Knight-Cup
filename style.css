@@ -88,6 +88,11 @@ body {
   justify-content: center;
 }
 
+.second-Half button:hover {
+  outline: 4px solid #C2A5F988;
+  
+}
+
 .second-Half button img {
   height: 24px;
   width: 24px;
