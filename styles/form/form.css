@@ -1,0 +1,246 @@
+
+
+header h4 {
+  font-family: "Open Sans";
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  color: #212529;
+  position: absolute;
+  top: 30px;
+  right: 734px;
+}
+
+.quote {
+  font-family: "Nunito";
+  font-weight: 800;
+  font-style: italic;
+  text-transform: uppercase;
+  font-size: 26px;
+  line-height: 50px;
+  color: #212529;
+  width: 423px;
+  height: 83px;
+  position: absolute;
+  top: 251px;
+  left: 132px;
+}
+
+.author {
+  font-family: "Nunito";
+  font-weight: 500;
+  text-transform: uppercase;
+  font-style: italic;
+  font-size: 24px;
+  line-height: 32.74px;
+  color: #e5e6e8;
+  position: absolute;
+  top: 442px;
+  left: 132px;
+}
+
+.main-img {
+  white-space: nowrap;
+  overflow: hidden;
+  height: 1080px;
+  overflow: hidden;
+}
+
+.second-img {
+  object-position: 20% 130px;
+}
+
+.stroke {
+  position: absolute;
+  top: 84px;
+  right: 0;
+  width: 999px;
+  height: 1px;
+  background-color: rgba(185, 180, 195, 0.3);
+  transform: translateY(-50%);
+}
+
+/* Progress bar */
+.square {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #212529;
+  font-family: "Open Sans";
+  font-size: 18px;
+  font-weight: 700;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  padding: 10px;
+  background-color: #fff;
+  border: 1px solid #e5e6e8;
+  position: absolute;
+  top: 144px;
+}
+
+.first {
+  right: 850px;
+}
+
+.second {
+  right: 628px;
+}
+
+.bolded {
+  background-color: #e5e6e8;
+  color: #95939a;
+}
+
+.progress-line {
+  width: 174px;
+  height: 1px;
+  background-color: rgba(185, 180, 195, 0.3);
+  position: absolute;
+  top: 164px;
+}
+
+.first-line {
+  right: 672px;
+}
+
+/* Titles */
+
+.title {
+  position: absolute;
+}
+
+.title h2 {
+  color: #000;
+  font-family: "Open Sans";
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 48px;
+  width: 328px;
+  height: 28px;
+  top: 284px;
+  left: 48px;
+  position: absolute;
+}
+
+#basic {
+  color: #95939a;
+  font-weight: 600;
+  font-size: 14px !important;
+  line-height: 21px;
+  width: 205px;
+  height: 21px;
+  position: absolute;
+  top: 335px;
+  left: 48px;
+}
+
+/* Input Fields */
+
+.hug {
+  width: 775px;
+  height: 304px;
+  position: absolute;
+  top: 400px;
+  left: 48px;
+}
+
+.hug input {
+  display: block;
+  width: 775px;
+  height: 40px;
+  border-radius: 4px;
+  padding: 8px 16px;
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.13);
+  margin-bottom: 40px;
+}
+
+.hug input:focus{
+  outline: none;
+  background-color: #E9ECEF;
+}
+
+.hug input:last-child {
+  margin-bottom: 0;
+}
+
+
+.input-group {
+  position: relative;
+}
+.input-group input {
+  background: transparent;
+  position: relative;
+  z-index: 2;
+}
+
+
+.input-group label {
+  font-family: "Open Sans";
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  position: absolute;
+  left: 17px;
+  top: 7px;
+  z-index: 1;
+  color: #95939a;
+}
+.input-group label::after {
+  content: " *";
+  color: #DC3545;
+}
+
+input[required]:focus + label {
+  display: none;
+}
+input[required]:valid + label {
+  display: none;
+}
+
+input[type=date]:required:invalid::-webkit-datetime-edit {
+  color: transparent;
+}
+input[type=date]:focus::-webkit-datetime-edit {
+  color: black !important;
+}
+
+/* input[required]:valid + label{display: none;} */
+
+
+
+.back-btn {
+  width: 93px;
+  height: 53px;
+  color: #212529;
+  border: 1px solid #212529;
+  padding: 13px 24px 13px 24px;
+  position: absolute;
+  top: 750px;
+  left: 48px;
+  border-radius: 8px;
+  font-family: "Open Sans";
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 27.24px;
+}
+
+.next-btn {
+  position: absolute;
+  top: 750px;
+  left: 695px;
+  width: 128px;
+  height: 53px;
+  border-radius: 8px;
+  padding: 13px 24px 13px 24px;
+  background-color: #212529;
+  font-family: "open sans";
+  color: #fff;
+  font-size: 20px;
+  line-height: 27px;
+}
+
+.greenColor {
+  background-color: greenyellow;
+}

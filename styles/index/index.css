@@ -1,0 +1,55 @@
+.second-Half {
+  background-color: #FD5334;
+}
+
+.second-Half button {
+  position: absolute;
+  top: 601px;
+  left: 85px;
+  width: 191px;
+  height: 53px;
+  border-radius: 8px;
+  padding: 13px 24px 13px 24px;
+  background-color: #212529;
+  font-family: "open sans";
+  color: #fff;
+  font-size: 20px;
+  line-height: 27px;
+}
+
+.second-Half button:hover {
+  outline: 4px solid #C2A5F988;
+}
+
+.second-Half h2 {
+  color: white;
+  font-family: "Nunito";
+  font-weight: 800;
+  line-height: 109.12px;
+  font-size: 80px;
+  vertical-align: top;
+}
+
+.second-Half p {
+  font-family: "Nunito";
+  font-weight: 700;
+  color: #212529;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 27.28px;
+  position: absolute;
+  top: 306px;
+  left: 607px;
+}
+
+.second-Half h2:nth-of-type(1) {
+  position: absolute;
+  top: 265px;
+  left: 85px;
+}
+
+.second-Half h2:nth-of-type(2) {
+  position: absolute;
+  top: 390px;
+  left: 85px;
+}
