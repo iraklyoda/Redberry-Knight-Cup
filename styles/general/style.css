@@ -82,5 +82,13 @@ body {
 }
 
 
+/* General */
 
+.display-n {
+  display: none;
+}
+
+.display-y {
+  display: block;
+}
 

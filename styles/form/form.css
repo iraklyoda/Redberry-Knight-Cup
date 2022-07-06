@@ -1,5 +1,3 @@
-
-
 header h4 {
   font-family: "Open Sans";
   font-weight: 600;
@@ -159,6 +157,8 @@ header h4 {
 .hug input:focus{
   outline: none;
   background-color: #E9ECEF;
+  color: #212529
+
 }
 
 .hug input:last-child {
@@ -175,7 +175,20 @@ header h4 {
   z-index: 2;
 }
 
+.greenColor {
+  background-color: #E9FAF1;
+}
 
+.error input {
+  background-color: #FFEFEF;
+  color: #DC3545;
+  z-index: 0;
+}
+
+
+
+
+/* Input Label as an placeholder */
 .input-group label {
   font-family: "Open Sans";
   font-weight: 400;
@@ -206,9 +219,17 @@ input[type=date]:focus::-webkit-datetime-edit {
   color: black !important;
 }
 
-/* input[required]:valid + label{display: none;} */
+.correct{
+  position: absolute;
+  right: 40px;
+  bottom: 10px;
+  visibility: hidden;
+}
 
-
+.success .correct {
+  visibility: visible;
+  z-index: 10;
+}
 
 .back-btn {
   width: 93px;
@@ -241,6 +262,69 @@ input[type=date]:focus::-webkit-datetime-edit {
   line-height: 27px;
 }
 
-.greenColor {
-  background-color: greenyellow;
+/* Errors */
+
+.errors {
+  position: absolute;
+  left: 550px;
+  top: 54px;
+}
+
+.err {
+  position: relative;
+  width: 350px;
+  height: 70px;
+  border-radius: 4px;
+  outline: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  margin-bottom: 10px;
+  background-color: white;
+}
+
+.error-svg {
+  position: absolute;
+  left: 12px;
+  top: 9px;
+  width: 20px;
+  height: 20px;
+}
+
+.invalid {
+  font-family: "Open Sans";
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 21px;
+  color: #DC3545;
+  position: absolute;
+  top: 9px;
+  left: 40px;
+}
+
+.error-delete {
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  top: 14px;
+  left: 326px;
+  cursor: pointer;
+}
+
+.error-stroke {
+  position: absolute;
+  top: 30px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: rgba(185, 180, 195, 0.3);
+}
+
+.error-message {
+  font-family: "Open Sans";
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #212529;
+  position: absolute;
+  top: 40px;
+  left: 12px;
 }
