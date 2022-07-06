@@ -25,11 +25,17 @@ secondSquare.addEventListener('click', () => {
   console.log(document.querySelector('.player-level').value);
 })
 
+
 document.querySelector('.player-level').addEventListener('click', () => {
+  if(document.querySelector('.player-level').value != ""){
   document.querySelector('.level-placeholder').classList.add('display-n');
+  }
 })
+
 document.querySelector('.player-character').addEventListener('click', () => {
+  if(document.querySelector('.player-character').value != ''){
   document.querySelector('.character-placeholder').classList.add('display-n');
+  }
 })
 
 
