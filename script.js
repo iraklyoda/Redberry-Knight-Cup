@@ -2,13 +2,37 @@
 
 const inputs = document.querySelectorAll("input");
 const firstSquare = document.querySelector(".first");
+const secondSquare = document.querySelector(".second");
 const nameInput = document.querySelector("#name");
 const emailInput = document.querySelector("#email");
 const numberInput = document.querySelector("#number");
 const dateInput = document.querySelector("#date");
 const form = document.querySelector("#create-account-form");
 const errorsElement = document.querySelector("#errors");
+const firstNextBtn = document.querySelector("#first-next-btn");
+const secondStepBack = document.querySelector("#second-step-back-btn");
+const four = document.querySelector("h4.first-step");
+const fourSecond = document.querySelector("h4.second-step");
+const firstSteps = document.querySelectorAll(".first-step");
+const secondSteps = document.querySelectorAll(".second-step");
+
+if(sessionStorage.step === "2"){
+  changeSteps();
+}
 console.log(sessionStorage);
+
+secondSquare.addEventListener('click', () => {
+  console.log(document.querySelector('.player-level').value);
+})
+
+document.querySelector('.player-level').addEventListener('click', () => {
+  document.querySelector('.level-placeholder').classList.add('display-n');
+})
+document.querySelector('.player-character').addEventListener('click', () => {
+  document.querySelector('.character-placeholder').classList.add('display-n');
+})
+
+
 
 // variables
 let errors = {};
@@ -17,22 +41,44 @@ let errors = {};
 inputs.forEach((input) => {
   input.addEventListener("click", () => {
     firstSquare.classList.add("greenColor");
-    sessionStorage.setItem("active", "true");
+    sessionStorage.setItem("active", "firstTrue");
   });
 });
-if (sessionStorage.active) {
+if (sessionStorage.active == "secondTrue") {
+  firstSquare.querySelector("span").classList.add("display-n");
+  firstSquare.querySelector("img").classList.add("display-y");
+  firstSquare.classList.add("greenColor");
+} else if (sessionStorage.active == "firstTrue") {
   firstSquare.classList.add("greenColor");
 }
 
-form.addEventListener("submit", (event) => {
-  event.preventDefault();
+
+// grab inputs from session storage
+if (sessionStorage.name) {
+  nameInput.value = sessionStorage.name;
+}
+if (sessionStorage.email) {
+  emailInput.value = sessionStorage.email;
+}
+if (sessionStorage.number) {
+  numberInput.value = sessionStorage.number;
+}
+if (sessionStorage.date) {
+  dateInput.value = sessionStorage.date;
+}
+
+
+
+// functions
+
+function checkFirstPage() {
   localStorage.setItem("name", nameInput.value);
   localStorage.setItem("email", emailInput.value);
   localStorage.setItem("number", numberInput.value);
   localStorage.setItem("date", dateInput.value);
   validateForm();
   const errorElementRemoveBtn = document.querySelectorAll(".error-delete");
-  errorElementRemoveBtn.forEach(removeBtn => {
+  errorElementRemoveBtn.forEach((removeBtn) => {
     removeBtn.addEventListener("click", () => {
       console.log("cekva");
       removeBtn.parentElement.classList.add("display-n");
@@ -41,13 +87,38 @@ form.addEventListener("submit", (event) => {
   if (isFormValid()) {
     firstSquare.querySelector("span").classList.add("display-n");
     firstSquare.querySelector("img").classList.add("display-y");
-    form.submit();
-  } else {
-    event.preventDefault();
-    firstSquare.querySelector("img").classList.add("display-n");
+    sessionStorage.setItem("active", "secondTrue");
+    changeSteps();
+    } else {
+    sessionStorage.setItem("active", "firstTrue");
+    firstSquare.querySelector("img").classList.remove("display-y");
     firstSquare.querySelector("span").classList.remove("display-n");
   }
+}
+
+function changeSteps() {
+  firstSteps.forEach((firstStep) => {
+    firstStep.classList.add("display-n");
+  });
+  secondSteps.forEach((secondStep) => {
+    secondStep.classList.remove("display-n");
+  });
+  secondSquare.classList.remove('bolded');
+  sessionStorage.setItem('step', '2');
+
+}
+
+firstNextBtn.addEventListener("click", () => {
+  checkFirstPage();
 });
+
+document.addEventListener('keypress', function (e) {
+  if (e.key === 'Enter') {
+    checkFirstPage();
+  }
+})
+
+
 
 function isFormValid() {
   const inputContainers = document.querySelectorAll(".input-group");
@@ -71,6 +142,7 @@ function validateForm() {
   } else {
     setSuccess(nameInput);
   }
+  sessionStorage.setItem("name", nameInput.value);
 
   // Email
   if (emailInput.value.trim() == "") {
@@ -80,6 +152,7 @@ function validateForm() {
   } else {
     setError(emailInput, "Invalid email", "Please enter valid email address");
   }
+  sessionStorage.setItem("email", emailInput.value);
 
   // Number
   if (numberInput.value.trim() == "") {
@@ -93,6 +166,7 @@ function validateForm() {
   } else {
     setSuccess(numberInput);
   }
+  sessionStorage.setItem("number", numberInput.value);
 
   // Date
   if (dateInput.value.trim() == "") {
@@ -100,6 +174,7 @@ function validateForm() {
   } else {
     setSuccess(dateInput);
   }
+  sessionStorage.setItem("date", dateInput.value);
   console.log(errors);
   for (const [reason, message] of Object.entries(errors)) {
     console.log(`${reason}, ${message}`);
@@ -133,3 +208,18 @@ function validateEmail(email) {
     /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
   return re.test(email) && reTwo.test(email);
 }
+
+// Between two steps
+
+
+secondStepBack.addEventListener("click", () => {
+  firstSteps.forEach((firstStep) => {
+    firstStep.classList.remove("display-n");
+  });
+  secondSteps.forEach((secondStep) => {
+    secondStep.classList.add("display-n");
+  });
+  sessionStorage.setItem('step', '1');
+});
+
+

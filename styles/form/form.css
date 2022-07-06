@@ -6,7 +6,7 @@ header h4 {
   color: #212529;
   position: absolute;
   top: 30px;
-  right: 734px;
+  left: 48px;
 }
 
 .quote {
@@ -77,6 +77,20 @@ header h4 {
   top: 144px;
 }
 
+
+.square-p {
+  font-family: "Open Sans";
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #000;
+  position: absolute;
+  top: 44px;
+  width: 158px;
+  height: 24px;
+  text-align: center;
+}
+
 .first {
   right: 850px;
 }
@@ -135,7 +149,7 @@ header h4 {
 
 /* Input Fields */
 
-.hug {
+.first-step.hug {
   width: 775px;
   height: 304px;
   position: absolute;
@@ -143,7 +157,7 @@ header h4 {
   left: 48px;
 }
 
-.hug input {
+.first-step.hug input {
   display: block;
   width: 775px;
   height: 40px;
@@ -189,7 +203,7 @@ header h4 {
 
 
 /* Input Label as an placeholder */
-.input-group label {
+.first-step .input-group label {
   font-family: "Open Sans";
   font-weight: 400;
   font-size: 16px;
@@ -200,22 +214,22 @@ header h4 {
   z-index: 1;
   color: #95939a;
 }
-.input-group label::after {
+.first-step .input-group label::after {
   content: " *";
   color: #DC3545;
 }
 
-input[required]:focus + label {
+.first-step input[required]:focus + label {
   display: none;
 }
-input[required]:valid + label {
+.first-step input[required]:valid + label {
   display: none;
 }
 
-input[type=date]:required:invalid::-webkit-datetime-edit {
+.first-step input[type=date]:required:invalid::-webkit-datetime-edit {
   color: transparent;
 }
-input[type=date]:focus::-webkit-datetime-edit {
+.first-step input[type=date]:focus::-webkit-datetime-edit {
   color: black !important;
 }
 
@@ -328,3 +342,125 @@ input[type=date]:focus::-webkit-datetime-edit {
   top: 40px;
   left: 12px;
 }
+
+/* Between two steps */
+
+.second-step-img .quote{
+  position: absolute;
+  left: 117px;
+  top: 227px;
+  width: 615px;
+  height: 83px;
+  font-family: "Nunito";
+  font-style: italic;
+  font-size: 26px;
+  color: #212529;
+  line-height: 40px;
+}
+
+.second-step-img .author {
+  position: absolute;
+  width: 266px;
+  height: 33px;
+  left: 466px;
+  top: 342px;
+  font-size: 24px;
+  line-height: 33px;
+  font-weight: 500;
+  color: #093F68;
+  font-family: 'Nunito';
+
+}
+
+/* Second Step */
+select {
+  width: 392px;
+  height: 46px;
+  padding: 0 10px;
+  border-radius: 4px;
+  font-family: "Open Sans";
+  font-size: 16px;
+  font-weight: 400;
+  background: transparent;
+  border: none;
+  box-shadow: 0px -1px 2px 0px rgba(0,0,0,0.14) inset;
+
+}
+
+
+
+.second-step input-group {
+  position: absolute;
+}
+
+.player-level {
+  position: absolute;
+  top: 491px;
+  left: 38px;
+}
+
+.player-character {
+  position: absolute;
+  top: 491px;
+  left: 453px;
+}
+
+.level-placeholder{
+  position: absolute;
+  left: 54px;
+  top: 504px;
+  font-family: "Open Sans";
+  font-weight: 400;
+  font-size: 16px;
+}
+
+.character-placeholder{
+  position: absolute;
+  left: 469px;
+  top: 504px;
+  font-family: "Open Sans";
+  font-weight: 400;
+  font-size: 16px;
+}
+
+.radio-input {
+  position: absolute;
+  width: 58px;
+  height: 24px;
+  top: 682px;
+  font-family: "Open Sans";
+  font-weight: 400;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+.radio-yes {
+  left: 55px;
+}
+
+.radios input {
+  width: 22px;
+  height: 24px;
+}
+
+
+
+.radio-no {
+  left: 159px;
+}
+
+.red {
+  color: red;
+}
+
+
+
+/* .second-step select[required]:focus + label {
+  display: none;
+}
+.second-step select[required]:valid + label {
+  display: none;
+} */

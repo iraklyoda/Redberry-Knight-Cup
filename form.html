@@ -35,26 +35,45 @@
             />
           </div>
         </header>
-        <div class="main-img">
-          <img
+        <!-- First Step Form -->
+        <div class="step-img first-step first-step-img">
+          <div class="main-img">
+            <img
             src="./media/second_page/yellow_chess.png"
             alt="chess board"
             class="main-board-img second-img"
-          />
+            />
+          </div>
+          <div class="headers">
+            <h2 class="quote">
+              "When you see a good move, look for a better one"
+            </h2>
+            <h2 class="author">-Emanuel Lasker</h2>
+          </div>
         </div>
-        <div class="headers">
-          <h2 class="quote">
-            "When you see a good move, look for a better one"
-          </h2>
-          <h2 class="author">-Emanuel Lasker</h2>
+        <!-- Second Step Form -->
+        <div class="step-img second-step second-step-img display-n">
+          <div class="main-img">
+            <img
+            src="./media/second_page/second_step_img.png"
+            alt="chess board"
+            class="main-board-img second-img"
+            />
+          </div>
+          <div class="headers">
+            <h2 class="quote">
+              "Many Have Become Chess Masters; no one has become the master of chess."
+            </h2>
+            <h2 class="author">- Siegbert Tarrasch</h2>
+          </div>
         </div>
       </div>
       <!-- Second Half -->
 
-      <!-- First Step -->
       <div class="second-Half">
         <header>
-          <h4>Start Creating Your Account</h4>
+          <h4 class="first-step">Start Creating Your Account</h4>
+          <h4 class="second-step display-n">First Step Is Done, Continue To Finish Onboarding</h4>
           <div class="stroke"></div>
         </header>
         <!-- Progress Bar -->
@@ -67,25 +86,33 @@
                 id="double-correct"
                 class="display-n"
               />
+              <p class="square-p">Personal Information</p>
             </div>
-            <div class="square second bolded"><span>2</span></div>
+            <div class="square second bolded"><span>2</span>
+              <p class="square-p">Chess Experience</p>
+            </div>
           </div>
           <div class="progress-line first-line"></div>
         </div>
         <!-- Personal Information -->
-        <div class="title">
+        <div class="title first-step">
           <h2>Personal information</h2>
           <p id="basic">This is Basic Information</p>
         </div>
-        <form
+        <div class="title second-step display-n">
+          <h2>Chess experience</h2>
+          <p id="basic">This Is Basic Information Fields</p>
+        </div>
+          <!--form -->
+          <form
           action=""
           class="multi-step-form"
           id="create-account-form"
           data-multi-step
           novalidate
-        >
+          >
           <!-- First Step -->
-          <div class="hug" data-step>
+          <div class="hug first-step">
             <div class="input-group">
               <input type="text" name="name" id="name" required="required" />
               <label for="name">Name</label>
@@ -112,28 +139,55 @@
               <img src="./media/general/Vectorcorrect.svg" class="correct" />
             </div>
           </div>
+          <!-- Second Step -->
+          <div class="hug second-step display-n">
+            <div class="input-group">
+              <label for="player-level" class="level-placeholder">level of knowledge <span class="red">*</span></label>
+              <select name="" id="" class="player-level" name="player-level" required>
+                  <option value="" disabled selected hidden class="level"></option>
+                  <option value="123">Beginner</option>
+                  <option value="123">Intermediate</option>
+                  <option value="123">Professional</option>
+              </select>
+            </div>
+            <div class="input-group " >
+              <label for="player-level" class="character-placeholder">Choose your character <span class="red">*</span></label>
+              <select name="" id="" class="player-character">
+                <option value="" disabled selected hidden class></option>
+                <option value="">Beginner</option>
+                <option value="">Intermediate</option>
+                <option value="">Professional</option>
+              </select>
+            </div>
+            <div class="input-group radios">
+              <div class="radio-input radio-yes">
+                <input type="radio" name="championship" id="yes">
+                <label for="yes" class="input-yes">Yes</label>
+              </div>
+              <div class="radio-input radio-no">
+                <input type="radio" name="championship" id="no">
+                <label for="no" class="input-no">No</label>
+              </div>
+            </div>
+
+          </div>
           <!-- Errors -->
           <div class="errors" id="errors">
-            <!-- <div class="err">
-              <img
-                src="./media/second_page/Vectoreroor.svg"
-                class="error-svg"
-              />
-              <p class="invalid">${reason}</p>
-              <img
-                src="./media/second_page/Vectordelete.svg"
-                class="error-delete"
-              />
-              <div class="error-stroke"></div>
-              <p class="error-message">${message}</p>
-            </div> -->
           </div>
-          <a href="./index.html">
+          <!-- Buttons -->
+          <a href="./index.html" class="first-step">
             <button type="button" class="back-btn">Back</button>
           </a>
-          <button type="submit" class="next-btn" id="first-next-btn">
+          <a href="#" class="second-step display-n">
+            <button type="button" class="back-btn" id="second-step-back-btn">Back</button>
+          </a>
+          <button type="button" class="next-btn second-step display-n" id="second-next-btn">
             Next <img src="./media/general/arrow.svg" alt="" class="right" />
           </button>
+          <button type="button" class="next-btn first-step" id="first-next-btn">
+            Next <img src="./media/general/arrow.svg" alt="" class="right" />
+          </button>
+  
         </form>
       </div>
     </div>
