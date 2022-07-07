@@ -15,6 +15,7 @@ const four = document.querySelector("h4.first-step");
 const fourSecond = document.querySelector("h4.second-step");
 const firstSteps = document.querySelectorAll(".first-step");
 const secondSteps = document.querySelectorAll(".second-step");
+const levels = document.getElementsByName('category');
 
 if(sessionStorage.step === "2"){
   changeSteps();
@@ -26,17 +27,13 @@ secondSquare.addEventListener('click', () => {
 })
 
 
-document.querySelector('.player-level').addEventListener('click', () => {
-  if(document.querySelector('.player-level').value != ""){
-  document.querySelector('.level-placeholder').classList.add('display-n');
-  }
-})
+// document.querySelector('.player-level').addEventListener('click', () => {
+//   if(document.querySelector('.player-level').value != ""){
+//   document.querySelector('.level-placeholder').classList.add('display-n');
+//   }
+// })
 
-document.querySelector('.player-character').addEventListener('click', () => {
-  if(document.querySelector('.player-character').value != ''){
-  document.querySelector('.character-placeholder').classList.add('display-n');
-  }
-})
+
 
 
 
@@ -82,7 +79,7 @@ function checkFirstPage() {
   localStorage.setItem("email", emailInput.value);
   localStorage.setItem("number", numberInput.value);
   localStorage.setItem("date", dateInput.value);
-  validateForm();
+  validateFormFirst();
   const errorElementRemoveBtn = document.querySelectorAll(".error-delete");
   errorElementRemoveBtn.forEach((removeBtn) => {
     removeBtn.addEventListener("click", () => {
@@ -137,7 +134,7 @@ function isFormValid() {
   return valid;
 }
 
-function validateForm() {
+function validateFormFirst() {
   errors = [];
   errorsElement.innerHTML = ``;
   // Name
@@ -180,6 +177,12 @@ function validateForm() {
   } else {
     setSuccess(dateInput);
   }
+
+  // Categories
+  if (!checkCategories()){
+    setError(document.querySelector(".selected-level"), "Invalid category", "Please enter valid Category");
+  }
+
   sessionStorage.setItem("date", dateInput.value);
   console.log(errors);
   for (const [reason, message] of Object.entries(errors)) {
@@ -195,6 +198,19 @@ function validateForm() {
     `;
   }
 }
+
+
+
+function checkCategories() {
+  checked = false;
+  levels.forEach(level => {
+    if(level.checked){
+      checked = true;
+    }
+  })
+  return checked;
+}
+
 
 function setError(element, errorReason, errorMessage) {
   const parent = element.parentElement;
@@ -229,3 +245,51 @@ secondStepBack.addEventListener("click", () => {
 });
 
 
+// Custom Select elements
+
+// For Levels
+const selectedLevel = document.querySelector(".selected-level");
+const optionsContainerLevel = document.querySelector(".options-container-level");
+const optionsListLevel = document.querySelectorAll('.option-level');
+
+  selectedLevel.addEventListener('click', () => {
+    console.log(checkCategories());
+    optionsContainerLevel.classList.toggle('active');
+  })
+
+
+optionsListLevel.forEach( option => {
+  option.addEventListener('click', () => {
+    selectedLevel.innerHTML = option.querySelector("label").innerHTML;
+    option.querySelector('input').checked = true;
+    optionsContainerLevel.classList.remove("active");
+  })
+});
+
+// For characters
+const selectedCharacter = document.querySelector(".selected-character");
+const optionsContainerCharacter = document.querySelector(".options-container-character");
+const optionsListCharacter = document.querySelectorAll('.option-character');
+
+  selectedCharacter.addEventListener('click', () => {
+    optionsContainerCharacter.classList.toggle('active');
+  })
+
+
+optionsListCharacter.forEach( option => {
+  option.addEventListener('click', () => {
+    selectedCharacter.innerHTML = option.querySelector("label").innerHTML;
+    option.querySelector('input').checked = true;
+    optionsContainerCharacter.classList.remove("active");
+  })
+});
+
+function validateSecond(){
+  errors = [];
+  errorsElement.innerHTML = ``;
+
+}
+
+
+
+console.log(levels.value);
