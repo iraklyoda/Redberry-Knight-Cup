@@ -1,3 +1,48 @@
+
+
+fetch("https://chess-tournament-api.devtest.ge/api/grandmasters")
+  .then((response) => response.json())
+  .then((charactersData) => {
+    const characterOptions = document.querySelector("#options-characters");
+    charactersData.forEach((character) => {
+      console.log(character);
+      characterOptions.innerHTML += `
+      <div class="option option-character">
+      <input
+        type="radio"
+        class="radio"
+        id="${character.id}"
+        value="${character.id}"
+        name="character_id"
+      />
+      <label for="${character.id}">${character.name}</label>
+      <img class="character-img" src="https://chess-tournament-api.devtest.ge/${character.image}" alt="${character.name}">
+    </div>
+      `;
+    });
+    const selectedCharacter = document.querySelector(".selected-character");
+    const optionsContainerCharacter = document.querySelector(
+      ".options-container-character"
+    );
+    const optionsListCharacter = document.querySelectorAll(".option-character");
+
+    selectedCharacter.addEventListener("click", () => {
+      optionsContainerCharacter.classList.toggle("active");
+    });
+
+    optionsListCharacter.forEach((option) => {
+      option.addEventListener("click", () => {
+        selectedCharacter.innerHTML = option.querySelector("label").innerHTML;
+        option.querySelector("input").checked = true;
+        optionsContainerCharacter.classList.remove("active");
+      });
+    });
+    console.log("fetchi");
+  })
+  .catch((e) => {
+    console.log(e);
+  });
+
 let params = new URLSearchParams(location.search);
 
 // if(!params.get('name')){
@@ -8,7 +53,6 @@ let params = new URLSearchParams(location.search);
 console.log(sessionStorage);
 const inputs = document.querySelectorAll(".input-group");
 const secondSquare = document.querySelector(".second");
-
 const errorsElement = document.querySelector("#errors");
 const form = document.querySelector("#create-account-form");
 const levels = document.getElementsByName("experience_level");
@@ -22,32 +66,30 @@ const optionsContainerLevel = document.querySelector(
   ".options-container-level"
 );
 
-const selectedCharacter = document.querySelector(".selected-character");
-const optionsContainerCharacter = document.querySelector(
-  ".options-container-character"
-);
-const optionsListCharacter = document.querySelectorAll(".option-character");
 const optionsListLevel = document.querySelectorAll(".option-level");
+
+// Api Play
+let charactersInfo = [];
+
+// Api Play
 
 let errors = {};
 
-
-levels.forEach(level => {
+levels.forEach((level) => {
   level.addEventListener("click", () => {
     changeHeader();
-  })
+  });
 });
-characters.forEach(level => {
+characters.forEach((level) => {
   level.addEventListener("click", () => {
     changeHeader();
-  })
+  });
 });
-championships.forEach(level => {
+championships.forEach((level) => {
   level.addEventListener("click", () => {
     changeHeader();
-  })
+  });
 });
-
 
 function changeHeader() {
   if (
@@ -69,7 +111,6 @@ inputs.forEach((input) => {
     sessionStorage.setItem("actives", "trueFirst");
   });
 });
-
 
 form.addEventListener("submit", (event) => {
   validateForm();
@@ -160,17 +201,17 @@ optionsListLevel.forEach((option) => {
 
 // For characters
 
-selectedCharacter.addEventListener("click", () => {
-  optionsContainerCharacter.classList.toggle("active");
-});
+// selectedCharacter.addEventListener("click", () => {
+//   optionsContainerCharacter.classList.toggle("active");
+// });
 
-optionsListCharacter.forEach((option) => {
-  option.addEventListener("click", () => {
-    selectedCharacter.innerHTML = option.querySelector("label").innerHTML;
-    option.querySelector("input").checked = true;
-    optionsContainerCharacter.classList.remove("active");
-  });
-});
+// optionsListCharacter.forEach((option) => {
+//   option.addEventListener("click", () => {
+//     selectedCharacter.innerHTML = option.querySelector("label").innerHTML;
+//     option.querySelector("input").checked = true;
+//     optionsContainerCharacter.classList.remove("active");
+//   });
+// });
 
 function setError(element, errorReason, errorMessage) {
   const parent = element.parentElement;

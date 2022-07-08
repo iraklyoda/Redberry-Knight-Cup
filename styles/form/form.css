@@ -538,6 +538,10 @@ h4.yes-no {
   padding: 10px 0;
 }
 
+#options-characters:first-child{
+  margin-top: 30px;
+}
+
 
 .select-box label {
   cursor: pointer;
@@ -582,9 +586,11 @@ p.characters-total {
   padding: 5px 0;
 }
 
-.only-options-character:first-child {
-  margin-top: 40px;
+
+.character-img {
+  height: 72px;
 }
+
 
 .option-container-character {
   height: 900px;

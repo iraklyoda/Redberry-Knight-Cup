@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,6 +9,8 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"
     />
+    <link rel="shortcut icon" href="#">
+
     <link rel="stylesheet" href="./styles/general/style.css" />
     <link rel="stylesheet" href="./styles/form/form.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -142,52 +145,8 @@
              <div class="container">
               <div class="input-group select-box player-character">
                 <div class="options-container options-container-character">
-                  <div class="only-options only-options-character">
+                  <div class="only-options" id="options-characters">
                     <p class="characters-total">(Total 4)</p>
-                    <div class="option option-character">
-                      <input
-                        type="radio"
-                        class="radio"
-                        id="beth"
-                        value="beth"
-                        name="character_id"
-                      />
-                      <label for="beth">Beth Harmon</label>
-                      <img src="./media/second_page/Rectangle 6character-example.png" alt="">
-                    </div>
-                    <div class="option option-character">
-                      <input
-                        type="radio"
-                        class="radio"
-                        id="beth"
-                        value="beth"
-                        name="character_id"
-                      />
-                      <label for="beth">Beth Harmon</label>
-                      <img src="./media/second_page/Rectangle 6character-example.png" alt="">
-                    </div>
-                    <div class="option option-character">
-                      <input
-                        type="radio"
-                        class="radio"
-                        id="beth"
-                        value="beth"
-                        name="character_id"
-                      />
-                      <label for="beth">Beth Harmon</label>
-                      <img src="./media/second_page/Rectangle 6character-example.png" alt="">
-                    </div>
-                    <div class="option option-character">
-                      <input
-                        type="radio"
-                        class="radio"
-                        id="beth"
-                        value="beth"
-                        name="character_id"
-                      />
-                      <label for="beth">Beth Harmon</label>
-                      <img src="./media/second_page/Rectangle 6character-example.png" alt="">
-                    </div>
                   </div>
                 </div>
                 <div class="selected selected-character level-placeholder">
@@ -226,6 +185,6 @@
         </form>
       </div>
     </div>
-    <script src="./script2.js"></script>
+    <script src="./script2.js" defer></script>
   </body>
 </html>
