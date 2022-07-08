@@ -31,6 +31,7 @@ const optionsListLevel = document.querySelectorAll(".option-level");
 
 let errors = {};
 
+
 levels.forEach(level => {
   level.addEventListener("click", () => {
     changeHeader();

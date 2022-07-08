@@ -168,6 +168,11 @@ header h4 {
   margin-bottom: 40px;
 }
 
+.first-step input:hover {
+  background-color: #F8F9FA;
+  color: #21252980;
+}
+
 .hug input:focus{
   outline: none;
   background-color: #E9ECEF;
@@ -225,6 +230,10 @@ header h4 {
 .first-step input[required]:valid + label {
   display: none;
 }
+
+
+
+
 
 .first-step input[type=date]:required:invalid::-webkit-datetime-edit {
   color: transparent;
