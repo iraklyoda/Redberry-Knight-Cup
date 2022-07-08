@@ -1,0 +1,17 @@
+.rocket-img {
+  position: absolute;
+  width: 183px;
+  height: 190px;
+  top: 416px;
+  left: 387px;
+}
+
+h1.rocket-header {
+  font-family: "Nunito";
+  font-weight: 800;
+  font-size: 36px;
+  line-height: 54px;
+  position: absolute;
+  top: 620px;
+  left: 278px;
+}

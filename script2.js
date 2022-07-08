@@ -42,11 +42,7 @@ fetch("https://chess-tournament-api.devtest.ge/api/grandmasters")
     console.log(e);
   });
 
-let params = new URLSearchParams(location.search);
 
-// if(!params.get('name')){
-//   window.location.href = "./form.html";
-// }
 
 // Const variables
 console.log(sessionStorage);
@@ -171,7 +167,9 @@ form.addEventListener("submit", (event) => {
         return response.text();
       }).then(function (text) {
         console.log(text);
-      }).catch(function (error) {
+      }).then(setTimeout(() => {
+        window.location.href = "thanks.html"
+      }, 2000)).catch(function (error) {
         console.error(error);
       })
       
