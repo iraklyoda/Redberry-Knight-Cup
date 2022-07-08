@@ -204,9 +204,6 @@ header h4 {
   z-index: 0;
 }
 
-
-
-
 /* Input Label as an placeholder */
 .first-step .input-group label {
   font-family: "Open Sans";
@@ -230,10 +227,6 @@ header h4 {
 .first-step input[required]:valid + label {
   display: none;
 }
-
-
-
-
 
 .first-step input[type=date]:required:invalid::-webkit-datetime-edit {
   color: transparent;
@@ -354,7 +347,7 @@ header h4 {
   left: 12px;
 }
 
-/* Between two steps */
+/* Second Step */
 
 .second-step-img .quote{
   position: absolute;
@@ -383,36 +376,33 @@ header h4 {
 
 }
 
-/* Second Step */
-select {
-  width: 392px;
-  height: 46px;
-  padding: 0 10px;
-  border-radius: 4px;
-  font-family: "Open Sans";
-  font-size: 16px;
-  font-weight: 400;
-  background: transparent;
-  border: none;
-  box-shadow: 0px -1px 2px 0px rgba(0,0,0,0.14) inset;
-
-}
-
-
 
 .second-step input-group {
   position: absolute;
 }
 
+h4.yes-no {
+  width: 743px;
+  height: 30px;
+  font-family: "Open Sans";
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 30px;
+  position: absolute;
+  top: 625px;
+  left: 53px;
+  color: #000;
+}
+
 .player-level {
   position: absolute;
-  top: 491px;
+  top: 499px;
   left: 38px;
 }
 
 .player-character {
   position: absolute;
-  top: 491px;
+  top: 499px;
   left: 453px;
 }
 
@@ -420,23 +410,7 @@ select {
   padding: 20px 0;
 }
 
-/* .level-placeholder{
-  position: absolute;
-  left: 54px;
-  top: 504px;
-  font-family: "Open Sans";
-  font-weight: 400;
-  font-size: 16px;
-} */
 
-.character-placeholder{
-  position: absolute;
-  left: 469px;
-  top: 504px;
-  font-family: "Open Sans";
-  font-weight: 400;
-  font-size: 16px;
-}
 
 
 
@@ -517,7 +491,12 @@ select {
 
 
 .select-box .options-container {
-  width: 100%;
+  margin-top: 4px;
+  transform: translateX(4px);
+  width: 392px;
+  /* height: 192px; */
+  border-radius: 4px;
+  border: 1px solid #B9B4C34D;
   transition: all 0.4s;
   border-radius: 8px;
   overflow: hidden;
@@ -527,26 +506,38 @@ select {
   line-height: 30px;
   max-height: 0;
   opacity: 0;
-
   order: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 
-.select-box .options-container.active {
+
+
+
+.select-box .options-container-level.active {
   max-height: 199px;
+  opacity: 1;
+}
+
+.select-box .options-container-character.active {
+  overflow-y: scroll;
+  max-height: 419px;
   opacity: 1;
 }
 
 
 .select-box .option,
 .selected {
-  padding: 7px 24px;
+  padding: 10px 24px;
   cursor: pointer;
 }
 
 .only-options {
   padding: 10px 0;
 }
+
 
 .select-box label {
   cursor: pointer;
@@ -562,14 +553,41 @@ select {
   display: none;
 }
 
-
-
 .radio-no {
   left: 159px;
 }
 
 .red {
   color: red;
+}
+
+p.characters-total {
+  position: absolute;
+  font-family: "Open Sans";
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+  color: #817D7D;
+  top: 16px;
+  left: 28px;
+}
+
+
+.option-character {
+  display: flex;
+  margin: 10px 0;
+  justify-content: space-between;
+  align-items: center;
+  height: 72px;
+  padding: 5px 0;
+}
+
+.only-options-character:first-child {
+  margin-top: 40px;
+}
+
+.option-container-character {
+  height: 900px;
 }
 
 

@@ -106,7 +106,7 @@
                         class="radio"
                         id="begginer"
                         value="begginer"
-                        name="category"
+                        name="experience_level"
                       />
                       <label for="begginer">Beginner</label>
                     </div>
@@ -116,7 +116,7 @@
                         type="radio"
                         class="radio"
                         id="intermediate"
-                        name="category"
+                        name="experience_level"
                         value="intermediate"
                       />
                       <label for="intermediate">Intermediate</label>
@@ -126,7 +126,7 @@
                         type="radio"
                         class="radio"
                         id="professional"
-                        name="category"
+                        name="experience_level"
                         value="professional"
                       />
                       <label for="professional">Professional</label>
@@ -138,40 +138,55 @@
                 </div>
               </div>
             </div>
+            <!-- For Character -->
              <div class="container">
               <div class="input-group select-box player-character">
                 <div class="options-container options-container-character">
-                  <div class="only-options">
+                  <div class="only-options only-options-character">
+                    <p class="characters-total">(Total 4)</p>
                     <div class="option option-character">
                       <input
                         type="radio"
                         class="radio"
                         id="beth"
                         value="beth"
-                        name="character"
+                        name="character_id"
                       />
                       <label for="beth">Beth Harmon</label>
-                    </div>
-                    <!-- </div> -->
-                    <div class="option option-character">
-                      <input
-                        type="radio"
-                        class="radio"
-                        id="mania"
-                        name="character"
-                        value="mania"
-                      />
-                      <label for="mania">chessMania</label>
+                      <img src="./media/second_page/Rectangle 6character-example.png" alt="">
                     </div>
                     <div class="option option-character">
                       <input
                         type="radio"
                         class="radio"
-                        id="danceBoy"
-                        name="character"
-                        value="danceBoy"
+                        id="beth"
+                        value="beth"
+                        name="character_id"
                       />
-                      <label for="danceBoy">danceBoy</label>
+                      <label for="beth">Beth Harmon</label>
+                      <img src="./media/second_page/Rectangle 6character-example.png" alt="">
+                    </div>
+                    <div class="option option-character">
+                      <input
+                        type="radio"
+                        class="radio"
+                        id="beth"
+                        value="beth"
+                        name="character_id"
+                      />
+                      <label for="beth">Beth Harmon</label>
+                      <img src="./media/second_page/Rectangle 6character-example.png" alt="">
+                    </div>
+                    <div class="option option-character">
+                      <input
+                        type="radio"
+                        class="radio"
+                        id="beth"
+                        value="beth"
+                        name="character_id"
+                      />
+                      <label for="beth">Beth Harmon</label>
+                      <img src="./media/second_page/Rectangle 6character-example.png" alt="">
                     </div>
                   </div>
                 </div>
@@ -181,13 +196,14 @@
               </div>
             </div>
             <!-- Yes No -->
+            <h4 class="yes-no">Have you participated in the Redberry Championship? <span class="red">*</span></h4>
             <div class="input-group radios">
               <div class="radio-input radio-yes">
-                <input type="radio" name="championship" id="yes" />
+                <input type="radio" name="already_participated" id="true" />
                 <label for="yes" class="input-yes">Yes</label>
               </div>
               <div class="radio-input radio-no">
-                <input type="radio" name="championship" id="no" />
+                <input type="radio" name="already_participated" id="false" />
                 <label for="no" class="input-no">No</label>
               </div>
             </div>

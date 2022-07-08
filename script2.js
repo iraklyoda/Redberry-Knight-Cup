@@ -11,9 +11,9 @@ const secondSquare = document.querySelector(".second");
 
 const errorsElement = document.querySelector("#errors");
 const form = document.querySelector("#create-account-form");
-const levels = document.getElementsByName("category");
-const characters = document.getElementsByName("character");
-const championships = document.getElementsByName("championship");
+const levels = document.getElementsByName("experience_level");
+const characters = document.getElementsByName("character_id");
+const championships = document.getElementsByName("already_participated");
 const selectedLevel = document.querySelector(".selected-level");
 const radioInput = document.querySelector(".radio-input");
 const radioInputs = document.querySelectorAll(".radio-input");
@@ -70,8 +70,6 @@ inputs.forEach((input) => {
   });
 });
 
-// # running on https://www.example.com?name=n1&name=n2
-console.log(params.get("name"));
 
 form.addEventListener("submit", (event) => {
   validateForm();
