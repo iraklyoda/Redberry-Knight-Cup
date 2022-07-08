@@ -52,31 +52,13 @@
           </div>
         </div>
         <!-- Second Step Form -->
-        <div class="step-img second-step second-step-img display-n">
-          <div class="main-img">
-            <img
-              src="./media/second_page/second_step_img.png"
-              alt="chess board"
-              class="main-board-img second-img"
-            />
-          </div>
-          <div class="headers">
-            <h2 class="quote">
-              "Many Have Become Chess Masters; no one has become the master of
-              chess."
-            </h2>
-            <h2 class="author">- Siegbert Tarrasch</h2>
-          </div>
-        </div>
+
       </div>
       <!-- Second Half -->
 
       <div class="second-Half">
         <header>
           <h4 class="first-step">Start Creating Your Account</h4>
-          <h4 class="second-step display-n">
-            First Step Is Done, Continue To Finish Onboarding
-          </h4>
           <div class="stroke"></div>
         </header>
         <!-- Progress Bar -->
@@ -103,13 +85,9 @@
           <h2>Personal information</h2>
           <p id="basic">This is Basic Information</p>
         </div>
-        <div class="title second-step display-n">
-          <h2>Chess experience</h2>
-          <p id="basic">This Is Basic Information Fields</p>
-        </div>
         <!--form -->
         <form
-          action=""
+          action="form2.html"
           class="multi-step-form"
           id="create-account-form"
           data-multi-step
@@ -143,139 +121,13 @@
               <img src="./media/general/Vectorcorrect.svg" class="correct" />
             </div>
           </div>
-          <!-- Second Step -->
-          <div class="hug second-step display-n">
-            <!-- Custom customizable select element -->
-            <div class="input-group container">
-              <div class="select-box player-level">
-                <div class="options-container options-container-level">
-                  <div class="only-options">
-                    <div class="option option-level">
-                      <input
-                        type="radio"
-                        class="radio"
-                        id="begginer"
-                        value="begginer"
-                        name="category"
-                      />
-                      <label for="begginer">Beginner</label>
-                    </div>
-                    <!-- </div> -->
-                    <div class="option option-level">
-                      <input
-                        type="radio"
-                        class="radio"
-                        id="intermediate"
-                        name="category"
-                        value="intermediate"
-                      />
-                      <label for="intermediate">Intermediate</label>
-                    </div>
-                    <div class="option option-level">
-                      <input
-                        type="radio"
-                        class="radio"
-                        id="professional"
-                        name="category"
-                        value="professional"
-                      />
-                      <label for="professional">Professional</label>
-                    </div>
-                  </div>
-                </div>
-                <div class="selected selected-level level-placeholder">
-                  level of knowledge <span class="red">*</span>
-                </div>
-              </div>
-            </div>
-            <!-- <div class="input-group">
-              <label for="player-level" class="character-placeholder"
-                >Choose your character <span class="red">*</span></label
-              >
-              <select name="" id="" class="player-character">
-                <option value="" disabled selected hidden class></option>
-                <option value="123">
-                  James Brown
-                  <img src="./media/second_page/yellow_chess.png" alt="" />
-                </option>
-                <option value="321">Intermediate</option>
-                <option value="123">Professional</option>
-              </select>
-            </div> -->
-             <!-- Custom customizable select element -->
-             <div class="input-group container">
-              <div class="select-box player-character">
-                <div class="options-container options-container-character">
-                  <div class="only-options">
-                    <div class="option option-character">
-                      <input
-                        type="radio"
-                        class="radio"
-                        id="begginer"
-                        value="begginer"
-                        name="character"
-                      />
-                      <label for="begginer">Beginner</label>
-                    </div>
-                    <!-- </div> -->
-                    <div class="option option-character">
-                      <input
-                        type="radio"
-                        class="radio"
-                        id="intermediate"
-                        name="character"
-                        value="intermediate"
-                      />
-                      <label for="intermediate">Intermediate</label>
-                    </div>
-                    <div class="option option-character">
-                      <input
-                        type="radio"
-                        class="radio"
-                        id="professional"
-                        name="character"
-                        value="professional"
-                      />
-                      <label for="professional">Professional</label>
-                    </div>
-                  </div>
-                </div>
-                <div class="selected selected-character level-placeholder">
-                  level of knowledge <span class="red">*</span>
-                </div>
-              </div>
-            </div>
-            <!-- Yes No -->
-            <div class="input-group radios">
-              <div class="radio-input radio-yes">
-                <input type="radio" name="championship" id="yes" />
-                <label for="yes" class="input-yes">Yes</label>
-              </div>
-              <div class="radio-input radio-no">
-                <input type="radio" name="championship" id="no" />
-                <label for="no" class="input-no">No</label>
-              </div>
-            </div>
-          </div>
           <!-- Errors -->
           <div class="errors" id="errors"></div>
           <!-- Buttons -->
           <a href="./index.html" class="first-step">
             <button type="button" class="back-btn">Back</button>
           </a>
-          <a href="#" class="second-step display-n">
-            <button type="button" class="back-btn" id="second-step-back-btn">
-              Back
-            </button>
-          </a>
-          <button
-            type="submit"
-            class="next-btn second-step display-n"
-            id="second-next-btn"
-          >
-            Done
-          </button>
-          <button type="button" class="next-btn first-step" id="first-next-btn">
+          <button type="submit" class="next-btn first-step" id="first-next-btn">
             Next <img src="./media/general/arrow.svg" alt="" class="right" />
           </button>
         </form>

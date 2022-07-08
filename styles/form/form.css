@@ -211,7 +211,7 @@ header h4 {
   position: absolute;
   left: 17px;
   top: 7px;
-  z-index: 1;
+  z-index: 10;
   color: #95939a;
 }
 .first-step .input-group label::after {

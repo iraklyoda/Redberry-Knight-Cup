@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"
+    />
+    <link rel="stylesheet" href="./styles/general/style.css" />
+    <link rel="stylesheet" href="./styles/form/form.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500;1,800&family=Open+Sans:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Redberry chess register</title>
+  </head>
+  <body>
+    <div class="page secondPage">
+      <div class="firstHalf">
+        <header class="knightCupHeader">
+          <div class="knight-cup-logo">
+            <img
+              src="./media/general/Vector.svg"
+              alt="knight crown"
+              class="crown-logo"
+            />
+            <img
+              src="./media/general/Redberry Knight Cup.svg"
+              alt="knight cup logo"
+              class="crown"
+            />
+          </div>
+        </header>
+        <!-- Second Step Form -->
+        <div class="step-img second-step second-step-img">
+          <div class="main-img">
+            <img
+              src="./media/second_page/second_step_img.png"
+              alt="chess board"
+              class="main-board-img second-img"
+            />
+          </div>
+          <div class="headers">
+            <h2 class="quote">
+              "Many Have Become Chess Masters; no one has become the master of
+              chess."
+            </h2>
+            <h2 class="author">- Siegbert Tarrasch</h2>
+          </div>
+        </div>
+      </div>
+      <!-- Second Half -->
+
+      <div class="second-Half">
+        <header>
+          <h4 class="second-step">
+            First Step Is Done, Continue To Finish Onboarding
+          </h4>
+          <div class="stroke"></div>
+        </header>
+        <!-- Progress Bar -->
+        <div class="progress-container">
+          <div class="squares">
+            <div class="square first greenColor">
+              <img
+                src="./media/second_page/VectordoubleCorrect.svg"
+                id="double-correct"
+                class=""
+              />
+              <p class="square-p">Personal Information</p>
+            </div>
+            <div class="square second">
+              <span>2</span>
+              <p class="square-p">Chess Experience</p>
+            </div>
+          </div>
+          <div class="progress-line first-line"></div>
+        </div>
+        <!-- Personal Information -->
+        <div class="title second-step">
+          <h2>Chess experience</h2>
+          <p id="basic">This Is Basic Information Fields</p>
+        </div>
+        <!--form -->
+        <form
+          action=""
+          class="multi-step-form"
+          id="create-account-form"
+          data-multi-step
+          novalidate
+        >
+          <!-- First Step -->
+          <div class="hug second-step">
+            <!-- Custom customizable select element -->
+            <div class="container">
+              <div class="input-group select-box player-level">
+                <div class="options-container options-container-level">
+                  <div class="only-options">
+                    <div class="option option-level">
+                      <input
+                        type="radio"
+                        class="radio"
+                        id="begginer"
+                        value="begginer"
+                        name="category"
+                      />
+                      <label for="begginer">Beginner</label>
+                    </div>
+                    <!-- </div> -->
+                    <div class="option option-level">
+                      <input
+                        type="radio"
+                        class="radio"
+                        id="intermediate"
+                        name="category"
+                        value="intermediate"
+                      />
+                      <label for="intermediate">Intermediate</label>
+                    </div>
+                    <div class="option option-level">
+                      <input
+                        type="radio"
+                        class="radio"
+                        id="professional"
+                        name="category"
+                        value="professional"
+                      />
+                      <label for="professional">Professional</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="selected selected-level level-placeholder">
+                  level of knowledge <span class="red">*</span>
+                </div>
+              </div>
+            </div>
+             <div class="container">
+              <div class="input-group select-box player-character">
+                <div class="options-container options-container-character">
+                  <div class="only-options">
+                    <div class="option option-character">
+                      <input
+                        type="radio"
+                        class="radio"
+                        id="begginer"
+                        value="begginer"
+                        name="character"
+                      />
+                      <label for="begginer">Beginner</label>
+                    </div>
+                    <!-- </div> -->
+                    <div class="option option-character">
+                      <input
+                        type="radio"
+                        class="radio"
+                        id="intermediate"
+                        name="character"
+                        value="intermediate"
+                      />
+                      <label for="intermediate">Intermediate</label>
+                    </div>
+                    <div class="option option-character">
+                      <input
+                        type="radio"
+                        class="radio"
+                        id="professional"
+                        name="character"
+                        value="professional"
+                      />
+                      <label for="professional">Professional</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="selected selected-character level-placeholder">
+                  level of knowledge <span class="red">*</span>
+                </div>
+              </div>
+            </div>
+            <!-- Yes No -->
+            <div class="input-group radios">
+              <div class="radio-input radio-yes">
+                <input type="radio" name="championship" id="yes" />
+                <label for="yes" class="input-yes">Yes</label>
+              </div>
+              <div class="radio-input radio-no">
+                <input type="radio" name="championship" id="no" />
+                <label for="no" class="input-no">No</label>
+              </div>
+            </div>
+          </div>
+          <!-- Errors -->
+          <div class="errors" id="errors"></div>
+          <!-- Buttons -->
+          <a href="./form.html" class="second-step">
+            <button type="button" class="back-btn" id="second-step-back-btn">
+              Back
+            </button>
+          </a>
+          <button
+            type="submit"
+            class="next-btn next-btn-second second-step"
+            id="second-next-btn"
+          >
+            Done
+          </button>
+        </form>
+      </div>
+    </div>
+    <script src="./script2.js"></script>
+  </body>
+</html>
