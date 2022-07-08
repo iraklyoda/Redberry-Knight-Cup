@@ -321,7 +321,9 @@ header h4 {
   top: 14px;
   left: 326px;
   cursor: pointer;
+  transition: 0.4s ease;
 }
+
 
 .error-stroke {
   position: absolute;

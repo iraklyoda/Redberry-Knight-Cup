@@ -1,10 +1,11 @@
 let params = new URLSearchParams(location.search);
 
-if(!params.get('name')){
-  window.location.href = "./form.html";
-}
+// if(!params.get('name')){
+//   window.location.href = "./form.html";
+// }
 
 // Const variables
+console.log(sessionStorage);
 const inputs = document.querySelectorAll(".input-group");
 const secondSquare = document.querySelector(".second");
 
@@ -15,6 +16,8 @@ const characters = document.getElementsByName("character");
 const championships = document.getElementsByName("championship");
 const selectedLevel = document.querySelector(".selected-level");
 const radioInput = document.querySelector(".radio-input");
+const radioInputs = document.querySelectorAll(".radio-input");
+const headerFour = document.querySelector("h4.second-step");
 const optionsContainerLevel = document.querySelector(
   ".options-container-level"
 );
@@ -28,24 +31,46 @@ const optionsListLevel = document.querySelectorAll(".option-level");
 
 let errors = {};
 
-if(sessionStorage.active == "firstTrue"){
-  secondSquare.classList.add("greenColor");
+levels.forEach(level => {
+  level.addEventListener("click", () => {
+    changeHeader();
+  })
+});
+characters.forEach(level => {
+  level.addEventListener("click", () => {
+    changeHeader();
+  })
+});
+championships.forEach(level => {
+  level.addEventListener("click", () => {
+    changeHeader();
+  })
+});
 
+
+function changeHeader() {
+  if (
+    checkRadios(characters) &&
+    checkRadios(levels) &&
+    checkRadios(championships)
+  ) {
+    headerFour.innerHTML = `Almost Done!`;
+  }
+}
+
+if (sessionStorage.actives == "trueFirst") {
+  secondSquare.classList.add("greenColor");
 }
 
 inputs.forEach((input) => {
   input.addEventListener("click", () => {
     secondSquare.classList.add("greenColor");
-    sessionStorage.setItem("active", "firstTrue");
+    sessionStorage.setItem("actives", "trueFirst");
   });
 });
 
 // # running on https://www.example.com?name=n1&name=n2
-console.log(params.get('name'));
-
-
-
-
+console.log(params.get("name"));
 
 form.addEventListener("submit", (event) => {
   validateForm();
@@ -61,7 +86,7 @@ form.addEventListener("submit", (event) => {
   } else {
     event.preventDefault();
   }
-})
+});
 
 function validateForm() {
   errors = [];
@@ -73,13 +98,13 @@ function validateForm() {
     setSuccess(selectedLevel);
   }
 
-  if(!checkRadios(characters)) {
+  if (!checkRadios(characters)) {
     setError(selectedCharacter, "characters", "Pls choose character");
   } else {
     setSuccess(selectedCharacter);
   }
 
-  if(!checkRadios(championships)) {
+  if (!checkRadios(championships)) {
     setError(radioInput, "yes-or-no", "pls choose yes or no");
   } else {
     setSuccess(radioInput);
@@ -119,7 +144,6 @@ function checkRadios(radios) {
   });
   return checked;
 }
-
 
 // Custom selects
 

@@ -18,12 +18,14 @@ console.log(sessionStorage);
 let errors = {};
 
 // make active square green
+if(sessionStorage.active != "secondTrue"){
 inputs.forEach((input) => {
   input.addEventListener("click", () => {
     firstSquare.classList.add("greenColor");
     sessionStorage.setItem("active", "firstTrue");
   });
 });
+}
 
 if (sessionStorage.active == "secondTrue") {
   firstSquare.querySelector("span").classList.add("display-n");
@@ -32,7 +34,8 @@ if (sessionStorage.active == "secondTrue") {
     input.parentElement.classList.add('success');
   });
   firstSquare.classList.add("greenColor");
-} else if (sessionStorage.active == "firstTrue") {
+} 
+else if (sessionStorage.active == "firstTrue") {
   firstSquare.classList.add("greenColor");
 }
 
@@ -71,8 +74,8 @@ form.addEventListener("submit", (event) => {
     sessionStorage.setItem("active", "secondTrue");
     form.submit();
   } else {
+    // sessionStorage.setItem("active", "firstTrue");
     event.preventDefault();
-    sessionStorage.setItem("active", "firstTrue");
     firstSquare.querySelector("img").classList.remove("display-y");
     firstSquare.querySelector("span").classList.remove("display-n");
   }
