@@ -34,8 +34,7 @@ if (sessionStorage.active == "secondTrue") {
     input.parentElement.classList.add('success');
   });
   firstSquare.classList.add("greenColor");
-} 
-else if (sessionStorage.active == "firstTrue") {
+} else if (sessionStorage.active == "firstTrue") {
   firstSquare.classList.add("greenColor");
 }
 
