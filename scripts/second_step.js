@@ -1,80 +1,31 @@
-fetch("https://chess-tournament-api.devtest.ge/api/grandmasters")
-  .then((response) => response.json())
-  .then((charactersData) => {
-    const characterOptions = document.querySelector("#options-characters");
-    const totalP = document.querySelector(".characters-total");
-    totalP.innerHTML = `(Total ${charactersData.length})`;
-
-    charactersData.forEach((character) => {
-      characterOptions.innerHTML += `
-      <div class="option option-character">
-      <input
-        type="radio"
-        class="radio"
-        id="${character.id}"
-        value="${character.id}"
-        name="character_id"
-      />
-      <label for="${character.id}">${character.name}</label>
-      <img class="character-img" src="https://chess-tournament-api.devtest.ge/${character.image}" alt="${character.name}">
-    </div>
-      `;
-    });
-    const selectedCharacter = document.querySelector(".selected-character");
-    const optionsContainerCharacter = document.querySelector(
-      ".options-container-character"
-    );
-    const optionsListCharacter = document.querySelectorAll(".option-character");
-
-    selectedCharacter.addEventListener("click", () => {
-      optionsContainerCharacter.classList.toggle("active");
-    });
-
-    optionsListCharacter.forEach((option) => {
-      option.addEventListener("click", () => {
-        selectedCharacter.innerHTML = option.querySelector("label").innerHTML;
-        option.querySelector("input").checked = true;
-        optionsContainerCharacter.classList.remove("active");
-      });
-    });
-  })
-  .catch((e) => {
-    console.log(e);
-  });
-
-
-
 // Const variables
-console.log(sessionStorage);
+// Inputs
 const inputs = document.querySelectorAll(".input-group");
-const secondSquare = document.querySelector(".second");
-
-const errorsElement = document.querySelector("#errors");
-const form = document.querySelector("#create-account-form");
+const selectedLevel = document.querySelector(".selected-level");
+const selectedCharacter = document.querySelector(".selected-character");
 const levels = document.getElementsByName("experience_level");
 const characters = document.getElementsByName("character_id");
-const championships = document.getElementsByName("already_participated");
-const selectedLevel = document.querySelector(".selected-level");
 const radioInput = document.querySelector(".radio-input");
 const radioInputs = document.querySelectorAll(".radio-input");
-const headerFour = document.querySelector("h4.second-step");
-const optionsContainerLevel = document.querySelector(
-  ".options-container-level"
-);
-
-const selectedCharacter = document.querySelector(".selected-character");
-
 const optionsContainerCharacter = document.querySelector(
   ".options-container-character"
 );
 const optionsListCharacter = document.querySelectorAll(".option-character");
 const optionsListLevel = document.querySelectorAll(".option-level");
+const championships = document.getElementsByName("already_participated");
+const optionsContainerLevel = document.querySelector(
+  ".options-container-level"
+);
 
-// Api Play
-let charactersInfo = [];
+// Form Elements
+const secondSquare = document.querySelector(".second");
+const errorsElement = document.querySelector("#errors");
+const form = document.querySelector("#create-account-form");
+const headerFour = document.querySelector("h4.second-step");
 
-// Api Play
+console.log(sessionStorage);
 
+// Variables
 let errors = {};
 
 levels.forEach((level) => {
@@ -129,52 +80,43 @@ form.addEventListener("submit", (event) => {
     console.log(`"${sessionStorage.email}"`);
     console.log(`"${sessionStorage.number}"`);
     let participated = "";
-    if(sessionStorage.already_participated == "true"){
+    if (sessionStorage.already_participated == "true") {
       participated = true;
     } else {
       participated = false;
     }
     console.log(participated);
-    
+
     fetch("https://chess-tournament-api.devtest.ge/api/register", {
       method: "POST",
       body: JSON.stringify({
-        // "name": `"${sessionStorage.name}"`,
-        // "email": `"${sessionStorage.email}"`,
-        // "phone": `"${sessionStorage.number}"`,
-        // "date_of_birth": `"${sessionStorage.date}"`,
-        // "experience_level": `"${sessionStorage.experience_level}"`,
-        // "already_participated": `${sessionStorage.already_participated}`,
-        // "character_id": `${sessionStorage.character_id}`,
-        
-        "name": sessionStorage.name,
-        "email": sessionStorage.email,
-        "phone": sessionStorage.number,
-        "date_of_birth": sessionStorage.date,
-        "experience_level": sessionStorage.experience_level,
-        "already_participated": participated,
-        "character_id": sessionStorage.character_id
+        name: sessionStorage.name,
+        email: sessionStorage.email,
+        phone: sessionStorage.number,
+        date_of_birth: sessionStorage.date,
+        experience_level: sessionStorage.experience_level,
+        already_participated: participated,
+        character_id: sessionStorage.character_id,
       }),
       headers: {
         accept: "application/json",
         "Content-Type": "application/json",
       },
     })
-      // .then(function(response){
-      //   return response.json();
-      // })
       .then(function (response) {
         return response.text();
-      }).then(function (text) {
-        console.log(text);
-      }).then(setTimeout(() => {
-        window.location.href = "thanks.html"
-      }, 2000)).catch(function (error) {
-        console.error(error);
       })
-      
-
-    // form.submit();
+      .then(function (text) {
+        console.log(text);
+      })
+      .then(
+        setTimeout(() => {
+          window.location.href = "thanks.html";
+        }, 2000)
+      )
+      .catch(function (error) {
+        console.error(error);
+      });
   } else {
     event.preventDefault();
   }
@@ -185,21 +127,21 @@ function validateForm() {
   errorsElement.innerHTML = ``;
   // Categories
   if (!checkRadios(levels)) {
-    setError(selectedLevel, "categories", "Pls choose category");
+    setError(selectedLevel, "level of knowledge", "pick your knowledge level");
   } else {
     setSuccess(selectedLevel);
     sessionStorage.setItem("experience_level", checkRadios(levels));
   }
 
   if (!checkRadios(characters)) {
-    setError(selectedCharacter, "characters", "Pls choose character");
+    setError(selectedCharacter, "Choose your character", "pick your character");
   } else {
     setSuccess(selectedCharacter);
     sessionStorage.setItem("character_id", checkRadios(characters));
   }
 
   if (!checkRadios(championships)) {
-    setError(radioInput, "yes-or-no", "pls choose yes or no");
+    setError(radioInput, "Participation", "Pick yes or no");
   } else {
     setSuccess(radioInput);
     sessionStorage.setItem("already_participated", checkRadios(championships));
@@ -241,6 +183,8 @@ function checkRadios(radios) {
 
 // Custom selects
 
+// User Experience
+
 selectedLevel.addEventListener("click", () => {
   optionsContainerLevel.classList.toggle("active");
 });
@@ -252,6 +196,50 @@ optionsListLevel.forEach((option) => {
     optionsContainerLevel.classList.remove("active");
   });
 });
+
+// Character Selector
+
+fetch("https://chess-tournament-api.devtest.ge/api/grandmasters")
+  .then((response) => response.json())
+  .then((charactersData) => {
+    const characterOptions = document.querySelector("#options-characters");
+    const totalP = document.querySelector(".characters-total");
+    totalP.innerHTML = `(Total ${charactersData.length})`;
+    charactersData.forEach((character) => {
+      characterOptions.innerHTML += `
+      <div class="option option-character">
+      <input
+        type="radio"
+        class="radio"
+        id="${character.id}"
+        value="${character.id}"
+        name="character_id"
+      />
+      <label for="${character.id}">${character.name}</label>
+      <img class="character-img" src="https://chess-tournament-api.devtest.ge/${character.image}" alt="${character.name}">
+    </div>
+      `;
+    });
+    const selectedCharacter = document.querySelector(".selected-character");
+    const optionsContainerCharacter = document.querySelector(
+      ".options-container-character"
+    );
+    const optionsListCharacter = document.querySelectorAll(".option-character");
+    selectedCharacter.addEventListener("click", () => {
+      optionsContainerCharacter.classList.toggle("active");
+    });
+
+    optionsListCharacter.forEach((option) => {
+      option.addEventListener("click", () => {
+        selectedCharacter.innerHTML = option.querySelector("label").innerHTML;
+        option.querySelector("input").checked = true;
+        optionsContainerCharacter.classList.remove("active");
+      });
+    });
+  })
+  .catch((e) => {
+    console.log(e);
+  });
 
 function setError(element, errorReason, errorMessage) {
   const parent = element.parentElement;

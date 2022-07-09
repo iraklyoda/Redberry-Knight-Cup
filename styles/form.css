@@ -40,7 +40,7 @@ header h4 {
 .main-img {
   white-space: nowrap;
   overflow: hidden;
-  height: 1080px;
+  height: 996px;
   overflow: hidden;
 }
 
@@ -275,6 +275,11 @@ input[type=number] {
   line-height: 27.24px;
 }
 
+.back-btn:hover {
+  background-color: #B9B4C34D;
+  border: 1px solid #C2A5F9CC;
+}
+
 .next-btn {
   position: absolute;
   top: 750px;
@@ -333,7 +338,7 @@ input[type=number] {
 .error-svg {
   position: absolute;
   left: 12px;
-  top: 9px;
+  top: 7px;
   width: 20px;
   height: 20px;
 }
@@ -345,7 +350,7 @@ input[type=number] {
   line-height: 21px;
   color: #DC3545;
   position: absolute;
-  top: 9px;
+  top: 7px;
   left: 40px;
 }
 
@@ -504,10 +509,9 @@ h4.yes-no {
 
 .selected::after {
   content: "";
-  background: url("../../media/second_page/VectorselectDown.svg");
+  background: url("../media/second_page/VectorselectDown.svg");
   background-size: contain;
   background-repeat: no-repeat;
-
   position: absolute;
   height: 26px;
   width: 14px;

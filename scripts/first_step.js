@@ -1,37 +1,38 @@
 // Document Selectors
-
+// Inputs
 const inputs = document.querySelectorAll("input");
-const firstSquare = document.querySelector(".first");
-const secondSquare = document.querySelector(".second");
 const nameInput = document.querySelector("#name");
 const emailInput = document.querySelector("#email");
 const numberInput = document.querySelector("#number");
 const dateInput = document.querySelector("#date");
+
+// Form Elements
 const form = document.querySelector("#create-account-form");
+const firstSquare = document.querySelector(".first");
+const secondSquare = document.querySelector(".second");
 const errorsElement = document.querySelector("#errors");
-const firstNextBtn = document.querySelector("#first-next-btn");
-const secondStepBack = document.querySelector("#second-step-back-btn");
 
 console.log(sessionStorage);
 
 // variables
-let errors = {};
+let errors = [];
 
-// make active square green
-if(sessionStorage.active != "secondTrue"){
-inputs.forEach((input) => {
-  input.addEventListener("click", () => {
-    firstSquare.classList.add("greenColor");
-    sessionStorage.setItem("active", "firstTrue");
+// If form inputs are correct show page cube to according condition
+if (sessionStorage.active != "secondTrue") {
+  inputs.forEach((input) => {
+    input.addEventListener("click", () => {
+      firstSquare.classList.add("greenColor");
+      sessionStorage.setItem("active", "firstTrue");
+    });
   });
-});
 }
 
+// If not return to 'active' condition
 if (sessionStorage.active == "secondTrue") {
   firstSquare.querySelector("span").classList.add("display-n");
   firstSquare.querySelector("img").classList.add("display-y");
-  inputs.forEach(input => {
-    input.parentElement.classList.add('success');
+  inputs.forEach((input) => {
+    input.parentElement.classList.add("success");
   });
   firstSquare.classList.add("greenColor");
 } else if (sessionStorage.active == "firstTrue") {
@@ -52,8 +53,7 @@ if (sessionStorage.date) {
   dateInput.value = sessionStorage.date;
 }
 
-// functions
-
+// Submitting the form
 form.addEventListener("submit", (event) => {
   localStorage.setItem("name", nameInput.value);
   localStorage.setItem("email", emailInput.value);
@@ -63,7 +63,6 @@ form.addEventListener("submit", (event) => {
   const errorElementRemoveBtn = document.querySelectorAll(".error-delete");
   errorElementRemoveBtn.forEach((removeBtn) => {
     removeBtn.addEventListener("click", () => {
-      console.log("cekva");
       removeBtn.parentElement.classList.add("display-n");
     });
   });
@@ -73,12 +72,11 @@ form.addEventListener("submit", (event) => {
     sessionStorage.setItem("active", "secondTrue");
     form.submit();
   } else {
-    // sessionStorage.setItem("active", "firstTrue");
     event.preventDefault();
     firstSquare.querySelector("img").classList.remove("display-y");
     firstSquare.querySelector("span").classList.remove("display-n");
   }
-})
+});
 
 function isFormValid() {
   const inputContainers = document.querySelectorAll(".input-group");
@@ -98,7 +96,7 @@ function validateForm() {
   if (nameInput.value.trim() === "") {
     setError(nameInput, "Invalid Name", "Please enter a name");
   } else if (nameInput.value.trim().length < 2) {
-    setError(nameInput, "Invalid Name", "Please enter a valid name");
+    setError(nameInput, "Invalid Name", "Name should contain at least 2 characters");
   } else {
     setSuccess(nameInput);
   }
@@ -110,7 +108,7 @@ function validateForm() {
   } else if (validateEmail(emailInput.value)) {
     setSuccess(emailInput);
   } else {
-    setError(emailInput, "Invalid email", "Please enter valid email address");
+    setError(emailInput, "Invalid email", "Email must be in redberry format");
   }
   sessionStorage.setItem("email", emailInput.value);
 
@@ -151,6 +149,7 @@ function validateForm() {
   }
 }
 
+// Sets error class on an element and defines error message
 function setError(element, errorReason, errorMessage) {
   const parent = element.parentElement;
   parent.classList.add("error");
@@ -170,7 +169,3 @@ function validateEmail(email) {
     /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
   return re.test(email) && reTwo.test(email);
 }
-
-// Between two steps
-
-
