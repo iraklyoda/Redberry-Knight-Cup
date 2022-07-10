@@ -97,6 +97,16 @@ form.addEventListener("submit", (event) => {
         console.log(response.status);
         if (response.status === 201) {
           window.location.href = "thanks.html";
+        } else {
+          errorsElement.innerHTML += `
+          <div class="err">
+          <img src="./media/second_page/Vectoreroor.svg" class="error-svg">
+          <p class="invalid">Error</p>
+          <img src="./media/second_page/Vectordelete.svg" class="error-delete">
+          <div class="error-stroke"></div>
+          <p class="error-message">Can't register form, try again</p>
+        </div>
+          `;
         }
         return response.text();
       })
