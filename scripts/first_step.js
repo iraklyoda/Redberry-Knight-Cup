@@ -51,12 +51,27 @@ if (sessionStorage.date) {
   dateInput.value = sessionStorage.date;
 }
 
+// set inputs to session storage
+nameInput.addEventListener("keyup", event => {
+  sessionStorage.setItem("name", event.target.value);
+});
+emailInput.addEventListener("keyup", event => {
+  sessionStorage.setItem("email", event.target.value);
+});
+numberInput.addEventListener("keyup", event => {
+  sessionStorage.setItem("number", event.target.value);
+});
+dateInput.addEventListener("keyup", event => {
+  sessionStorage.setItem("date", event.target.value);
+});
+
+
 // Submitting the form
 form.addEventListener("submit", (event) => {
-  localStorage.setItem("name", nameInput.value);
-  localStorage.setItem("email", emailInput.value);
-  localStorage.setItem("number", numberInput.value);
-  localStorage.setItem("date", dateInput.value);
+  sessionStorage.setItem("name", nameInput.value);
+  sessionStorage.setItem("email", emailInput.value);
+  sessionStorage.setItem("number", numberInput.value);
+  sessionStorage.setItem("date", dateInput.value);
   validateForm();
   const errorElementRemoveBtn = document.querySelectorAll(".error-delete");
   errorElementRemoveBtn.forEach((removeBtn) => {
@@ -113,7 +128,7 @@ function validateForm() {
   // Number
   if (numberInput.value.trim() == "") {
     setError(numberInput, "Invalid Number", "Provide phone number");
-  } else if (numberInput.value.trim().length != 9) {
+  } else if (!validateNumber(numberInput.value)) {
     setError(
       numberInput,
       "Invalid Number",
@@ -166,4 +181,9 @@ function validateEmail(email) {
   let reTwo =
     /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
   return re.test(email) && reTwo.test(email);
+}
+
+function validateNumber(number) {
+    let re = /^\d+$/;
+    return re.test(number) && number.length == 9;
 }

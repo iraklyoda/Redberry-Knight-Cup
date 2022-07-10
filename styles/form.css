@@ -302,6 +302,10 @@ input[type=number] {
   top: 54px;
 }
 
+.errors-second {
+  top: 200px;
+}
+
 @keyframes shake {
   10%, 90% {
     transform: translate3d(-1px, 0, 0);
@@ -449,6 +453,7 @@ h4.yes-no {
 
 .error .selected {
   color: #DC3545;
+  background-color: #FFEFEF !important;
 }
 
 
@@ -553,38 +558,52 @@ h4.yes-no {
 }
 
 
-
-
-
 .select-box .options-container-level.active {
+  border: none !important;
   max-height: 199px;
   opacity: 1;
 }
 
 .select-box .options-container-character.active {
-  max-height: 1000px;
+  border: none !important;
+  position: relative;
+  max-height: 400px;
   opacity: 1;
   overflow-y: auto;
 }
 
-.options-container-character.active::-webkit-scrollbar-track
-{
-	background-color: #CBCFD2;
-  border-radius: 4px;
+#options-characters {
+  width: 392px;
+  max-height: 400px;
+}
+
+.option-character:first-of-type {
+  margin-top: 50px;
+}
+
+  
+.options-container-character.active::-webkit-scrollbar {
+  display: block;
   width: 4px;
 }
-
-.options-container-character.active::-webkit-scrollbar
-{
-  border-radius: 4px;
-	width: 4px;
-	background-color: #E9ECEF;
+.options-container-character.active::-webkit-scrollbar-track {
+  background: transparent;
+}
+  
+.options-container-character.active::-webkit-scrollbar-thumb {
+  background-color: #CBCFD2;
+  border-right: none;
+  border-left: none;
 }
 
-.options-container-character.active::-webkit-scrollbar-thumb
-{
-	border-radius: 4px;
-	background-color: #E9ECEF;
+.options-container-character.active::-webkit-scrollbar-track-piece:end {
+  background: transparent;
+  margin-bottom: 30px; 
+}
+
+.options-container-character.active::-webkit-scrollbar-track-piece:start {
+  background: transparent;
+  margin-top: 40px;
 }
 
 
@@ -593,14 +612,6 @@ h4.yes-no {
 .selected {
   padding: 10px 24px;
   cursor: pointer;
-}
-
-.only-options {
-  padding: 10px 0;
-}
-
-#options-characters:first-child{
-  margin-top: 30px;
 }
 
 
@@ -640,7 +651,8 @@ p.characters-total {
 
 .option-character {
   display: flex;
-  margin: 10px 0;
+  width: 100%;
+  margin: 10px 5px;
   justify-content: space-between;
   align-items: center;
   height: 72px;
@@ -653,15 +665,7 @@ p.characters-total {
 }
 
 
-.option-container-character {
-  height: 900px;
-}
 
 
 
-/* .second-step select[required]:focus + label {
-  display: none;
-}
-.second-step select[required]:valid + label {
-  display: none;
-} */
+

@@ -29,13 +29,16 @@ console.log(sessionStorage);
 // Variables
 let errors = {};
 
+if (sessionStorage.character_id && sessionStorage.experience_level) {
+  headerFour.innerHTML = `Almost Done!`;
+}
+
 optionsListLevel.forEach((level) => {
   level.addEventListener("click", () => {
-    console.log("Lamazo");
     changeHeader();
   });
 });
-championships.forEach((level) => {
+characters.forEach((level) => {
   level.addEventListener("click", () => {
     changeHeader();
   });
@@ -69,9 +72,6 @@ form.addEventListener("submit", (event) => {
   });
   if (isFormValid()) {
     event.preventDefault();
-    console.log(`"${sessionStorage.name}"`);
-    console.log(`"${sessionStorage.email}"`);
-    console.log(`"${sessionStorage.number}"`);
     let participated = "";
     if (sessionStorage.already_participated == "true") {
       participated = true;
@@ -97,16 +97,17 @@ form.addEventListener("submit", (event) => {
       },
     })
       .then(function (response) {
+        console.log(response.status);
+        if (response.status === 201) {
+          setTimeout(() => {
+            window.location.href = "thanks.html";
+          }, 5000);
+        }
         return response.text();
       })
       .then(function (text) {
         console.log(text);
       })
-      .then
-      setTimeout(() => {
-        window.location.href = "thanks.html";
-      }, 2000)
-      ()
       .catch(function (error) {
         console.error(error);
       });
@@ -172,7 +173,18 @@ function checkRadios(radios) {
 
 // Custom selects
 
-// User Experience
+// Player Experience
+
+// Stay after refresh
+if (sessionStorage.experience_level) {
+  const id = sessionStorage.experience_level;
+  const option = document.getElementById(id).parentElement;
+  const parent = selectedLevel.parentElement;
+  parent.classList.remove("error");
+  selectedLevel.innerHTML = option.querySelector("label").innerHTML;
+  option.querySelector("input").checked = true;
+  optionsContainerLevel.classList.remove("active");
+}
 
 selectedLevel.addEventListener("click", () => {
   optionsContainerLevel.classList.toggle("active");
@@ -182,13 +194,22 @@ optionsListLevel.forEach((option) => {
   option.addEventListener("click", () => {
     const parent = selectedLevel.parentElement;
     parent.classList.remove("error");
+    console.log(option);
     selectedLevel.innerHTML = option.querySelector("label").innerHTML;
     option.querySelector("input").checked = true;
+    sessionStorage.setItem(
+      "experience_level",
+      option.querySelector("input").id
+    );
     optionsContainerLevel.classList.remove("active");
   });
 });
 
 // Character Selector
+
+if (sessionStorage.characterName) {
+  selectedCharacter.innerHTML = sessionStorage.characterName;
+}
 
 fetch("https://chess-tournament-api.devtest.ge/api/grandmasters")
   .then((response) => response.json())
@@ -220,12 +241,41 @@ fetch("https://chess-tournament-api.devtest.ge/api/grandmasters")
       optionsContainerCharacter.classList.toggle("active");
     });
 
+    // If character is already selected before refresh
+    if (sessionStorage.character_id) {
+      const id = sessionStorage.character_id;
+      const option = document.getElementById(id).parentElement;
+      console.log(option);
+      const parent = selectedLevel.parentElement;
+      parent.classList.remove("error");
+      selectedCharacter.innerHTML = option.querySelector("label").innerHTML;
+      option.querySelector("input").checked = true;
+      sessionStorage.setItem(
+        "characterName",
+        option.querySelector("label").innerHTML
+      );
+      optionsContainerLevel.classList.remove("active");
+    }
+
+    if (sessionStorage.character_id && sessionStorage.experience_level) {
+      headerFour.innerHTML = `Almost Done!`;
+    }
+
     optionsListCharacter.forEach((option) => {
       option.addEventListener("click", () => {
         const parent = selectedCharacter.parentElement;
         parent.classList.remove("error");
         selectedCharacter.innerHTML = option.querySelector("label").innerHTML;
         option.querySelector("input").checked = true;
+        console.log(option);
+        sessionStorage.setItem(
+          "character_id",
+          option.querySelector("input").id
+        );
+        sessionStorage.setItem(
+          "characterName",
+          option.querySelector("label").innerHTML
+        );
         optionsContainerCharacter.classList.remove("active");
       });
     });
@@ -238,6 +288,25 @@ fetch("https://chess-tournament-api.devtest.ge/api/grandmasters")
   .catch((e) => {
     console.log(e);
   });
+
+// Participation
+
+// Stay after refresh
+if (sessionStorage.already_participated) {
+  const id = sessionStorage.already_participated;
+  const option = document.getElementById(id).parentElement;
+  option.querySelector("input").checked = true;
+}
+
+radioInputs.forEach((option) => {
+  option.addEventListener("click", () => {
+    option.querySelector("input").checked = true;
+    sessionStorage.setItem(
+      "already_participated",
+      option.querySelector("input").id
+    );
+  });
+});
 
 function setError(element, errorReason, errorMessage) {
   const parent = element.parentElement;
