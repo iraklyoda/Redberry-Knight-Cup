@@ -3,6 +3,7 @@
 const inputs = document.querySelectorAll(".input-group");
 const selectedLevel = document.querySelector(".selected-level");
 const selectedCharacter = document.querySelector(".selected-character");
+const selected = document.querySelectorAll(".selected");
 const levels = document.getElementsByName("experience_level");
 const characters = document.getElementsByName("character_id");
 const radioInput = document.querySelector(".radio-input");
@@ -28,13 +29,9 @@ console.log(sessionStorage);
 // Variables
 let errors = {};
 
-levels.forEach((level) => {
+optionsListLevel.forEach((level) => {
   level.addEventListener("click", () => {
-    changeHeader();
-  });
-});
-characters.forEach((level) => {
-  level.addEventListener("click", () => {
+    console.log("Lamazo");
     changeHeader();
   });
 });
@@ -45,11 +42,7 @@ championships.forEach((level) => {
 });
 
 function changeHeader() {
-  if (
-    checkRadios(characters) &&
-    checkRadios(levels) &&
-    checkRadios(championships)
-  ) {
+  if (checkRadios(characters) && checkRadios(levels)) {
     headerFour.innerHTML = `Almost Done!`;
   }
 }
@@ -109,11 +102,11 @@ form.addEventListener("submit", (event) => {
       .then(function (text) {
         console.log(text);
       })
-      .then(
-        setTimeout(() => {
-          window.location.href = "thanks.html";
-        }, 2000)
-      )
+      .then
+      setTimeout(() => {
+        window.location.href = "thanks.html";
+      }, 2000)
+      ()
       .catch(function (error) {
         console.error(error);
       });
@@ -126,6 +119,7 @@ function validateForm() {
   errors = [];
   errorsElement.innerHTML = ``;
   // Categories
+  // Levels
   if (!checkRadios(levels)) {
     setError(selectedLevel, "level of knowledge", "pick your knowledge level");
   } else {
@@ -133,19 +127,14 @@ function validateForm() {
     sessionStorage.setItem("experience_level", checkRadios(levels));
   }
 
+  // Characters
   if (!checkRadios(characters)) {
     setError(selectedCharacter, "Choose your character", "pick your character");
   } else {
     setSuccess(selectedCharacter);
     sessionStorage.setItem("character_id", checkRadios(characters));
   }
-
-  if (!checkRadios(championships)) {
-    setError(radioInput, "Participation", "Pick yes or no");
-  } else {
-    setSuccess(radioInput);
-    sessionStorage.setItem("already_participated", checkRadios(championships));
-  }
+  sessionStorage.setItem("already_participated", checkRadios(championships));
 
   for (const [reason, message] of Object.entries(errors)) {
     errorsElement.innerHTML += `
@@ -191,6 +180,8 @@ selectedLevel.addEventListener("click", () => {
 
 optionsListLevel.forEach((option) => {
   option.addEventListener("click", () => {
+    const parent = selectedLevel.parentElement;
+    parent.classList.remove("error");
     selectedLevel.innerHTML = option.querySelector("label").innerHTML;
     option.querySelector("input").checked = true;
     optionsContainerLevel.classList.remove("active");
@@ -231,9 +222,16 @@ fetch("https://chess-tournament-api.devtest.ge/api/grandmasters")
 
     optionsListCharacter.forEach((option) => {
       option.addEventListener("click", () => {
+        const parent = selectedCharacter.parentElement;
+        parent.classList.remove("error");
         selectedCharacter.innerHTML = option.querySelector("label").innerHTML;
         option.querySelector("input").checked = true;
         optionsContainerCharacter.classList.remove("active");
+      });
+    });
+    optionsListCharacter.forEach((level) => {
+      level.addEventListener("click", () => {
+        changeHeader();
       });
     });
   })

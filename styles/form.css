@@ -448,6 +448,10 @@ h4.yes-no {
   padding: 20px 0;
 }
 
+.error .selected {
+  color: #DC3545;
+}
+
 
 
 

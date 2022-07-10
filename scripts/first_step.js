@@ -18,13 +18,11 @@ console.log(sessionStorage);
 let errors = [];
 
 // If form inputs are correct show page cube to according condition
-if (sessionStorage.active != "secondTrue") {
-  inputs.forEach((input) => {
-    input.addEventListener("click", () => {
-      firstSquare.classList.add("greenColor");
-      sessionStorage.setItem("active", "firstTrue");
-    });
-  });
+function firstActive() {
+  if (sessionStorage.active != "secondTrue") {
+  firstSquare.classList.add("greenColor");
+  sessionStorage.setItem("active", "firstTrue");
+  }
 }
 
 // If not return to 'active' condition
