@@ -12,7 +12,7 @@ const firstSquare = document.querySelector(".first");
 const secondSquare = document.querySelector(".second");
 const errorsElement = document.querySelector("#errors");
 
-console.log(sessionStorage);
+
 
 // variables
 let errors = [];
@@ -83,7 +83,7 @@ form.addEventListener("submit", (event) => {
     firstSquare.querySelector("span").classList.add("display-n");
     firstSquare.querySelector("img").classList.add("display-y");
     sessionStorage.setItem("active", "secondTrue");
-    form.submit();
+    window.location.href = "form2.html";
   } else {
     event.preventDefault();
     firstSquare.querySelector("img").classList.remove("display-y");
@@ -147,9 +147,7 @@ function validateForm() {
   }
 
   sessionStorage.setItem("date", dateInput.value);
-  console.log(errors);
   for (const [reason, message] of Object.entries(errors)) {
-    console.log(`${reason}, ${message}`);
     errorsElement.innerHTML += `
     <div class="err">
     <img src="./media/second_page/Vectoreroor.svg" class="error-svg">

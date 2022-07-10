@@ -24,7 +24,6 @@ const errorsElement = document.querySelector("#errors");
 const form = document.querySelector("#create-account-form");
 const headerFour = document.querySelector("h4.second-step");
 
-console.log(sessionStorage);
 
 // Variables
 let errors = {};
@@ -66,7 +65,6 @@ form.addEventListener("submit", (event) => {
   const errorElementRemoveBtn = document.querySelectorAll(".error-delete");
   errorElementRemoveBtn.forEach((removeBtn) => {
     removeBtn.addEventListener("click", () => {
-      console.log("cekva");
       removeBtn.parentElement.classList.add("display-n");
     });
   });
@@ -78,7 +76,6 @@ form.addEventListener("submit", (event) => {
     } else {
       participated = false;
     }
-    console.log(participated);
 
     fetch("https://chess-tournament-api.devtest.ge/api/register", {
       method: "POST",
@@ -99,9 +96,7 @@ form.addEventListener("submit", (event) => {
       .then(function (response) {
         console.log(response.status);
         if (response.status === 201) {
-          setTimeout(() => {
-            window.location.href = "thanks.html";
-          }, 5000);
+          window.location.href = "thanks.html";
         }
         return response.text();
       })
@@ -194,7 +189,6 @@ optionsListLevel.forEach((option) => {
   option.addEventListener("click", () => {
     const parent = selectedLevel.parentElement;
     parent.classList.remove("error");
-    console.log(option);
     selectedLevel.innerHTML = option.querySelector("label").innerHTML;
     option.querySelector("input").checked = true;
     sessionStorage.setItem(
@@ -245,7 +239,6 @@ fetch("https://chess-tournament-api.devtest.ge/api/grandmasters")
     if (sessionStorage.character_id) {
       const id = sessionStorage.character_id;
       const option = document.getElementById(id).parentElement;
-      console.log(option);
       const parent = selectedLevel.parentElement;
       parent.classList.remove("error");
       selectedCharacter.innerHTML = option.querySelector("label").innerHTML;
@@ -267,7 +260,6 @@ fetch("https://chess-tournament-api.devtest.ge/api/grandmasters")
         parent.classList.remove("error");
         selectedCharacter.innerHTML = option.querySelector("label").innerHTML;
         option.querySelector("input").checked = true;
-        console.log(option);
         sessionStorage.setItem(
           "character_id",
           option.querySelector("input").id
